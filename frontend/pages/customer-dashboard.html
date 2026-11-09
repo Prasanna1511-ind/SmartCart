@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Customer Dashboard - SmartCart</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+    <style>
+        .orders-section {
+            margin-top: 35px;
+            overflow-x: auto;
+        }
+
+        .orders-section table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 750px;
+        }
+
+        .orders-section th,
+        .orders-section td {
+            padding: 14px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tracking-container {
+            min-width: 300px;
+            padding: 10px 0;
+        }
+
+        .tracking-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin: 15px 5px;
+        }
+
+        .tracking-steps::before {
+            content: "";
+            position: absolute;
+            height: 4px;
+            background: #ddd;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            z-index: 0;
+        }
+
+        .tracking-step {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            font-size: 11px;
+            color: #888;
+            width: 25%;
+        }
+
+        .tracking-dot {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #ddd;
+            margin: 0 auto 7px;
+            border: 3px solid white;
+        }
+
+        .tracking-step.completed {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .tracking-step.completed .tracking-dot {
+            background: #27ae60;
+        }
+
+        .tracking-status {
+            font-weight: bold;
+            color: #8e44ad;
+        }
+
+        .cancelled-status {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">SmartCart</div>
+
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="cart.html">Cart</a>
+        <button type="button" id="logoutBtn">Logout</button>
+    </nav>
+</header>
+
+<section class="dashboard">
+
+    <h1>My Dashboard</h1>
+
+    <div class="dashboard-cards">
+
+        <div class="dashboard-card">
+            <h3>My Orders</h3>
+            <p id="totalOrders">0</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>Total Purchase</h3>
+            <p>₹<span id="totalPurchase">0</span></p>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>Wishlist Items</h3>
+            <p id="totalWishlist">0</p>
+        </div>
+
+    </div>
+
+    <div class="profile-section">
+
+        <h2>My Profile</h2>
+
+        <p>
+            <strong>Name:</strong>
+            <span id="customerName">Customer</span>
+        </p>
+
+        <p>
+            <strong>Email:</strong>
+            <span id="customerEmail">Not available</span>
+        </p>
+
+        <p>
+            <strong>Phone:</strong>
+            <span id="customerPhone">Not available</span>
+        </p>
+
+    </div>
+
+    <div class="orders-section">
+
+        <h2>My Orders & Tracking</h2>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Payment</th>
+                    <th>Status</th>
+                    <th>Order Tracking</th>
+                </tr>
+            </thead>
+
+            <tbody id="ordersTable">
+                <tr>
+                    <td colspan="6">Loading orders...</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+<script src="../js/dashboard.js"></script>
+
+</body>
+</html>

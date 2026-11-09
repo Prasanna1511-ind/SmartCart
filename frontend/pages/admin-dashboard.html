@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - SmartCart</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">SmartCart Admin</div>
+    <nav>
+        <a href="../index.html">Website</a>
+        <a href="login.html">Logout</a>
+    </nav>
+</header>
+
+<section class="dashboard">
+
+    <h1>Admin Dashboard</h1>
+
+    <!-- ADMIN STATISTICS -->
+    <div class="dashboard-cards">
+
+        <div class="dashboard-card">
+            <h3>Total Products</h3>
+            <p id="totalProducts">0</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>Total Customers</h3>
+            <p id="totalCustomers">0</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>Total Orders</h3>
+            <p id="adminOrders">0</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>Total Revenue</h3>
+            <p>₹<span id="totalRevenue">0</span></p>
+        </div>
+
+    </div>
+
+    <!-- ADD PRODUCT -->
+    <div class="admin-section">
+
+        <h2>Add New Product</h2>
+
+        <form id="productForm">
+
+            <input type="text" id="productName"
+                   placeholder="Product Name" required>
+
+            <textarea id="productDescription"
+                      placeholder="Product Description" required></textarea>
+
+            <select id="productCategory" required>
+                <option value="">Select Category</option>
+                <option value="1">Women</option>
+                <option value="2">Men</option>
+                <option value="3">Kids</option>
+            </select>
+
+            <select id="productShop" required>
+                <option value="">Select Shop</option>
+                <option value="1">Meena Fashions</option>
+                <option value="2">Urban Loom</option>
+                <option value="3">Little Threads</option>
+                <option value="4">Kaveri Silks</option>
+                <option value="5">Sri Trends</option>
+            </select>
+
+            <input type="number" id="productPrice"
+                   placeholder="Product Price" min="1" step="0.01" required>
+
+            <input type="number" id="productStock"
+                   placeholder="Stock Quantity" min="0" required>
+
+            <input type="text" id="productImage"
+                   placeholder="Product Image URL">
+
+            <button type="submit">Add Product</button>
+
+        </form>
+
+    </div>
+
+    <!-- PRODUCT MANAGEMENT -->
+    <div class="admin-section">
+
+        <h2>Manage Products</h2>
+
+        <div class="table-container">
+
+            <table border="1" cellpadding="10" cellspacing="0">
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="adminProductList">
+                    <tr>
+                        <td colspan="5">Loading products...</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <!-- ORDER MANAGEMENT -->
+<div class="admin-section">
+
+    <h2>Order Management</h2>
+
+    <div class="table-container">
+
+        <table border="1" cellpadding="10" cellspacing="0">
+
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Customer</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody id="adminOrderTable">
+                <tr>
+                    <td colspan="6">Loading orders...</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+</section>
+
+<script src="../js/admin.js"></script>
+
+</body>
+</html>

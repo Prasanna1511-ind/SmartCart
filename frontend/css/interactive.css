@@ -1,0 +1,160 @@
+/* Interactive CSS starter
+   Drop this in after your own styles. Class names are generic:
+   .btn, .card, .nav a, .field, .toggle, .reveal  */
+
+:root {
+  --accent: #3b5bdb;
+  --accent-strong: #2f4ac0;
+  --ink: #1b1f2a;
+  --surface: #ffffff;
+  --line: #d9dde7;
+  --radius: 10px;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* Links: underline grows in from the left */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 2px no-repeat;
+  transition: background-size 0.25s var(--ease);
+}
+a:hover,
+a:focus-visible {
+  background-size: 100% 2px;
+}
+
+/* Buttons: lift on hover, press on click */
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.3rem;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s var(--ease), box-shadow 0.15s var(--ease),
+    background-color 0.15s;
+}
+.btn:hover {
+  background: var(--accent-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(59, 91, 219, 0.3);
+}
+.btn:active {
+  transform: translateY(0) scale(0.97);
+  box-shadow: none;
+}
+
+/* Cards: lift and tilt the border color on hover */
+.card {
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: transform 0.2s var(--ease), border-color 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 12px 28px rgba(27, 31, 42, 0.1);
+}
+
+/* Form fields: highlight when focused or invalid */
+.field {
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  font: inherit;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.field:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(59, 91, 219, 0.18);
+}
+.field:user-invalid {
+  border-color: #d6336c;
+  box-shadow: 0 0 0 4px rgba(214, 51, 108, 0.15);
+}
+
+/* Toggle switch: <label class="toggle"><input type="checkbox"><span></span></label> */
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 26px;
+}
+.toggle input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+  cursor: pointer;
+}
+.toggle span {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: var(--line);
+  transition: background-color 0.2s;
+  pointer-events: none;
+}
+.toggle span::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.2s var(--ease);
+}
+.toggle input:checked + span {
+  background: var(--accent);
+}
+.toggle input:checked + span::after {
+  transform: translateX(20px);
+}
+.toggle input:focus-visible + span {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Reveal on scroll (pure CSS, supported in modern browsers) */
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 40%;
+  }
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+/* Visible keyboard focus everywhere */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Respect users who turn motion off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}

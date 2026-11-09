@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - SmartCart</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/products.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">SmartCart</div>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="wishlist.html">Wishlist</a>
+        <a href="cart.html">Cart</a>
+        <a href="login.html">Login</a>
+    </nav>
+</header>
+
+<section class="product-section">
+
+    <h1>Our Collections</h1>
+
+    <div class="filters">
+        <input type="text" id="searchInput" placeholder="Search products...">
+
+        <select id="categoryFilter">
+    <option value="all">All Categories</option>
+    <option value="1">Womens Wear</option>
+    <option value="2">Mens Wear</option>
+    <option value="3">Kids Wear</option>
+</select>
+    </div>
+
+    <div class="product-container" id="productContainer"></div>
+
+</section>
+
+<script src="../js/products.js"></script>
+
+</body>
+</html>

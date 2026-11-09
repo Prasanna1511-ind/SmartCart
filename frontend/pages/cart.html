@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - SmartCart</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/products.css">
+    <link rel="stylesheet" href="../css/cart.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">SmartCart</div>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="wishlist.html">Wishlist</a>
+        <a href="cart.html">Cart</a>
+    </nav>
+</header>
+
+<section class="cart-section">
+
+    <h1>My Shopping Cart</h1>
+
+    <div id="cartContainer"></div>
+
+    <div class="cart-summary">
+        <h2>Order Summary</h2>
+        <h3>Total: ₹<span id="cartTotal">0</span></h3>
+
+        <button onclick="goToCheckout()">Proceed to Checkout</button>
+    </div>
+
+</section>
+
+<script src="../js/cart.js"></script>
+
+</body>
+</html>
